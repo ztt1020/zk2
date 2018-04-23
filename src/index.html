@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul>
+				<li>001
+					<p>01</p>
+					<p>02</p>
+				</li>
+				<li>002
+					<p>01</p>
+					<p>02</p>
+					<p>03</p>
+				</li>
+				<li>003
+					<p>01</p>
+					<p>02</p>
+					<p>03</p>
+				</li>
+			</ul>
+			<script id='rander' type="text/x-handlebars-template">
+			    {{#each this}}
+		        	{{name}}
+		        {{/each}}
+	    	</script>
+		</div>
+		<script src="js/require.js" data-main="js/main" defer async="true"></script>
+		<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$.ajax({
+				url:"/rander",
+				success:function(res){
+					var data = JSON.parse(res).swiper()
+					console.log(data)
+				},
+				error:function(){
+					console.warn(error)
+				}
+			})
+		</script>
+	</body>
+</html>
